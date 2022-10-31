@@ -20,7 +20,7 @@ class AddCartItem extends Component
 
     public function mount(){
         $this->quantity = qty_available($this->product->id);
-        $this->options['image'] = Storage::url($this->product->images->first()->url);
+        $this->options['image'] = asset('storage/' .$this->product->images->first()->url);
     }
 
     public function decrement(){

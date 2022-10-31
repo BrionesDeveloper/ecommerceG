@@ -40,6 +40,9 @@ class Product extends Model
     public function sizes(){
         return $this->hasMany(Size::class);
     }
+    public function reviews(){
+        return $this->hasMany(Review::class);
+    }
 
     //Relacion uno a muchos inversa
     public function brand(){

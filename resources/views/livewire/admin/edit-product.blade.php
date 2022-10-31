@@ -32,7 +32,7 @@
                     @foreach ($product->images as $image)
 
                         <li class="relative" wire:key="image-{{ $image->id }}">
-                            <img class="w-32 h-20 object-cover" src="{{ Storage::url($image->url) }}" alt="">
+                            <img class="w-32 h-20 object-cover" src="{{ asset('storage/' .$image->url) }}" alt="">
                             <x-jet-danger-button class="absolute right-2 top-2"
                                 wire:click="deleteImage({{ $image->id }})" wire:loading.attr="disabled"
                                 wire:target="deleteImage({{ $image->id }})">
