@@ -14,7 +14,8 @@ class BrandFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word()
+            'name' => $this->faker->word(),
+            'image' => 'brands/' . $this->faker->image('public/storage/brands', 640, 480, null, false)
         ];
     }
 }

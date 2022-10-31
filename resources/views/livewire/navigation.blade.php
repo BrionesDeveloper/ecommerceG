@@ -11,6 +11,27 @@
             <span class="text-sm hidden md:block">Categorías</span>
         </a>
 
+        <a  
+            class="flex flex-col items-center justify-center order-last md:order-first px-6 md:px-4 bg-white bg-opacity-25 text-white cursor-pointer font-semibold h-full">
+            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <ul class="bg-pink-300">
+                @foreach ($brands as $brand)
+                    <li class="navigation-link text-fuchsia-700 hover:bg-yellow-200 hover:text-yellow-500">
+                        <a href="/" class="py-2 px-4 text-sm flex items-center">
+                      
+
+                            {{$brand->name}}
+                        </a>
+
+                    </li>
+                @endforeach
+            </ul>
+            <span class="text-sm hidden md:block">Marcas</span>
+        </a>
+
         <a href="/" class="mx-6">
             <x-logo-guapissima class="block h-9 w-auto" />
         </a>

@@ -18,6 +18,14 @@
                 <x-jet-input type="text" wire:model="createForm.name" class="w-full" />
                 <x-jet-input-error for="createForm.name" />
             </div>
+            <div class="col-span-6 sm:col-span-4">
+                <x-jet-label>
+                    Imagen
+                </x-jet-label>
+
+                <input wire:model="createForm.image" accept="image/*" type="file" class="mt-1" name="" id="{{$rand}}">
+                <x-jet-input-error for="createForm.image" />
+            </div>
         </x-slot>
 
         <x-slot name="actions">
@@ -52,10 +60,25 @@
                         <tr>
                             <td class="py-2">
 
-                                <a class="uppercase">
-                                    {{$brand->name}}
-                                </a>
+                                
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 h-10 w-10">
+                                        @if ($brand->image)
+                                            <img class="h-10 w-10 rounded-full object-cover"
+                                                src="{{ asset('storage/' .$brand->image) }}" alt="">
+                                        @else
+                                            <img class="h-10 w-10 rounded-full object-cover"
+                                                src="https://images.pexels.com/photos/4883800/pexels-photo-4883800.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                        @endif
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium uppercase text-gray-900">
+                                            {{ $brand->name }}
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
+                            
                             <td class="py-2">
                                 <div class="flex divide-x divide-gray-300 font-semibold">
                                     <a class="pr-2 hover:text-blue-600 cursor-pointer" wire:click="edit('{{$brand->id}}')">Editar</a>
@@ -75,17 +98,34 @@
         <x-slot name="title">
             Editar marca
         </x-slot>
+        
 
         <x-slot name="content">
+            <div>
+                @if ($editImage)
+                    <img class="w-full h-64 object-cover object-center" src="{{$editImage->temporaryUrl()}}" alt="">
+                @else
+                    <img class="w-full h-64 object-cover object-center" src="{{asset('storage/' .$editForm['image'])}}" alt="">
+                @endif
+            </div>
             <x-jet-label>
                 Nombre
             </x-jet-label>
             <x-jet-input wire:model="editForm.name" type="text" class="w-full" />
             <x-jet-input-error for="editForm.name" />
+
+            <div>
+                <x-jet-label>
+                    Imagen
+                </x-jet-label>
+
+                <input wire:model="editImage" accept="image/*" type="file" class="mt-1" name="" id="{{$rand}}">
+                <x-jet-input-error for="editImage" />
+            </div>
         </x-slot>
 
         <x-slot name="footer">
-            <x-jet-danger-button wire:click="update" wire:loading.attr="disabled" wire:target="update">
+            <x-jet-danger-button wire:click="update" wire:loading.attr="disabled" wire:target="editImage, update">
                 Actualizar
             </x-jet-danger-button>
         </x-slot>
