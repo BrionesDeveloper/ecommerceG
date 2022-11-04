@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         Storage::deleteDirectory('subcategories');
         Storage::deleteDirectory('products');
         Storage::deleteDirectory('brands');
+        Storage::deleteDirectory('carrusels');
 
 
         // Creacion de carpetas para las imagenes 
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
         Storage::makeDirectory('subcategories');
         Storage::makeDirectory('products');
         Storage::makeDirectory('brands');
+        Storage::makeDirectory('carrusels');
 
         $this->call(UserSeeder::class);
         $this->call(CategorySeeder::class);

@@ -1,7 +1,15 @@
 <x-app-layout>
- 
     
+    <div class="altura">
+        @livewire('carrusel') 
+
+    </div>
+
     <div class="container py-8">
+        <x-contact></x-contact>
+
+        @livewire('brand') 
+        
         @foreach ($categories as $category)
         
             <section class="mb-6">
@@ -24,10 +32,35 @@
     @push('script')
         
         <script>
+            Livewire.on('slider', function(){
+                $(document).ready(function() {
+                     $('.flexslider').flexslider({
+                         animation: "slide",
+                         animationLoop: true,                         
+                         itemMargin: 1,
+                         minItems: 1,
+                         maxItems: 1,
+                         smoothHeight: true,
+                             });
+                         });
+                });
+           
 
             Livewire.on('glider', function(id){
-
-                new Glider(document.querySelector('.glider-' + id), {
+                if (id>=99) {
+                    new Glider(document.querySelector('.glider-' + id), {
+                    slidesToShow: 1,
+                    slidesToScroll: 'auto',                    
+                    draggable: true,                    
+                    dots: '.glider-' + id + '~ .dots',
+                    arrows: {
+                        prev: '.glider-' + id + '~ .glider-prev',
+                        next: '.glider-' + id + '~ .glider-next'
+                    }
+                });
+                    
+                }else{
+                    new Glider(document.querySelector('.glider-' + id), {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     draggable: true,
@@ -69,6 +102,10 @@
                         },
                     ]
                 });
+
+                }
+
+                
 
             });
                 

@@ -11,7 +11,7 @@
             <span class="text-sm hidden md:block">Categorías</span>
         </a>
 
-        <a  
+        {{-- <a  
             class="flex flex-col items-center justify-center order-last md:order-first px-6 md:px-4 bg-white bg-opacity-25 text-white cursor-pointer font-semibold h-full">
             <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                 <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -30,7 +30,7 @@
                 @endforeach
             </ul>
             <span class="text-sm hidden md:block">Marcas</span>
-        </a>
+        </a> --}}
 
         <a href="/" class="mx-6">
             <x-logo-guapissima class="block h-9 w-auto" />
@@ -225,4 +225,5 @@
             @endauth
         </div>
     </nav>
+
 </header>

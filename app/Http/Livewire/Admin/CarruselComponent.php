@@ -2,18 +2,17 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Brand;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Carrusel;
 use Livewire\Component;
+use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
 
 
-
-class BrandComponent extends Component
+class CarruselComponent extends Component
 {
     use WithFileUploads;
 
-    public $brands, $brand,$rand;
+    public $carrusels, $carrusel,$rand;
 
     protected $listeners = ['delete'];
 
@@ -32,7 +31,7 @@ class BrandComponent extends Component
 
     public $rules = [
         'createForm.name' => 'required',
-        'createForm.image' => 'required|image|max:1024'
+        'createForm.image' => 'required'
     ];
 
     protected $validationAttributes = [
@@ -42,18 +41,18 @@ class BrandComponent extends Component
     ];
 
     public function mount(){
-        $this->getBrands();
+        $this->getCarrusels();
         $this->rand = rand();
     }
 
-    public function getBrands(){
-        $this->brands = Brand::all();
+    public function getCarrusels(){
+        $this->carrusels = Carrusel::all();
     }
 
     public function save(){
         $this->validate();
-        $image = $this->createForm['image']->store('brands');
-        Brand::create([
+        $image = $this->createForm['image']->store('carrusels');
+        Carrusel::create([
             'name' => $this->createForm['name'],            
             'image' => $image
         ]);        
@@ -61,20 +60,20 @@ class BrandComponent extends Component
 
         $this->reset('createForm');
 
-        $this->getBrands();
+        $this->getCarrusels();
         $this->emit('saved');
 
     }
 
-    public function edit(Brand $brand){
+    public function edit(Carrusel $carrusel){
         $this->reset(['editImage']);
         $this->resetValidation();
-        $this->brand = $brand;
+        $this->carrusel = $carrusel;
 
 
         $this->editForm['open'] = true;
-        $this->editForm['name'] = $brand->name;
-        $this->editForm['image'] = $brand->image;
+        $this->editForm['name'] = $carrusel->name;
+        $this->editForm['image'] = $carrusel->image;
 
     }
 
@@ -87,22 +86,22 @@ class BrandComponent extends Component
         }
         if ($this->editImage) {
             Storage::delete($this->editForm['image']);
-            $this->editForm['image'] = $this->editImage->store('brands');
+            $this->editForm['image'] = $this->editImage->store('carrusels');
         }
 
-        $this->brand->update($this->editForm);
+        $this->carrusel->update($this->editForm);
         $this->reset('editForm', 'editImage');
 
-        $this->getBrands();
+        $this->getCarrusels();
     }
 
-    public function delete(Brand $brand){
-        $brand->delete();
-        $this->getBrands();
+    public function delete(Carrusel $carrusel){
+        $carrusel->delete();
+        $this->getCarrusels();
     }
 
     public function render()
     {
-        return view('livewire.admin.brand-component')->layout('layouts.admin');
+        return view('livewire.admin.carrusel-component')->layout('layouts.admin');
     }
 }

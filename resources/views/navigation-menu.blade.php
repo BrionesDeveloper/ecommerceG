@@ -29,6 +29,10 @@
                        <span class="text-white"> Marcas </span>
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{route('admin.carrusels.index')}}" :active="request()->routeIs('admin.carrusels.*')">
+                        <span class="text-white"> Carrusel </span>
+                    </x-jet-nav-link>
+
                     <x-jet-nav-link href="{{route('admin.departments.index')}}" :active="request()->routeIs('admin.departments.index')">
                        <span class="text-white"> Departamentos </span>
                     </x-jet-nav-link>
@@ -173,6 +177,10 @@
 
             <x-jet-responsive-nav-link href="{{route('admin.brands.index')}}" :active="request()->routeIs('admin.brands.*')">
                 Marcas
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{route('admin.carrusels.index')}}" :active="request()->routeIs('admin.carrusels.*')">
+                Carrusel
             </x-jet-responsive-nav-link>
 
             <x-jet-responsive-nav-link href="{{route('admin.departments.index')}}" :active="request()->routeIs('admin.departments.index')">
