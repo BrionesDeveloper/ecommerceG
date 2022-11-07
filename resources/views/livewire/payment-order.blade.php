@@ -153,6 +153,9 @@
 
 
                 <div id="paypal-button-container"></div>
+                
+                
+                {{-- <button wire:click="payOrder">test</button> --}}
 
             </div>
         </div>
