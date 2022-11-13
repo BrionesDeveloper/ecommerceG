@@ -110,7 +110,7 @@
                                 </td>
 
                                 <td class="text-center">
-                                    {{ $item->price }} USD
+                                    {{ $item->price }} MXM
                                 </td>
 
                                 <td class="text-center">
@@ -118,7 +118,7 @@
                                 </td>
 
                                 <td class="text-center">
-                                    {{ $item->price * $item->qty }} USD
+                                    {{ $item->price * $item->qty }} MXM
                                 </td>
                             </tr>
                         @endforeach
@@ -136,13 +136,13 @@
                     <img class="h-8" src="{{ asset('img/MC_VI_DI_2-1.jpg') }}" alt="">
                     <div class="text-gray-700">
                         <p class="text-sm font-semibold">
-                            Subtotal: {{ $order->total - $order->shipping_cost }} USD
+                            Subtotal: {{ $order->total - $order->shipping_cost }} MXM
                         </p>
                         <p class="text-sm font-semibold">
-                            Envío: {{ $order->shipping_cost }} USD
+                            Envío: {{ $order->shipping_cost }} MXM
                         </p>
                         <p class="text-lg font-semibold uppercase">
-                            Total: {{ $order->total }} USD
+                            Total: {{ $order->total }} MXM
                         </p>
 
                         <div class="cho-container">

@@ -1,7 +1,7 @@
 <div x-data>
-    <p class="text-gray-700 mb-4">
+    {{-- <p class="text-gray-700 mb-4">
         <span class="font-semibold text-lg">Stock disponible:</span> {{$quantity}}
-    </p>
+    </p> --}}
 
     <div class="flex">
         <div class="mr-4">

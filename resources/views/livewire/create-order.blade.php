@@ -152,7 +152,7 @@
 
                             </div>
 
-                            <p>USD {{$item->price}}</p>
+                            <p>MXM {{$item->price}}</p>
                         </article>
                     </li>
                 @empty
@@ -177,7 +177,7 @@
                         @if ($envio_type == 1 || $shipping_cost == 0)
                             Gratis
                         @else
-                            {{$shipping_cost}} USD
+                            {{$shipping_cost}} MXM
                         @endif
                     </span>
                 </p>
@@ -187,9 +187,9 @@
                 <p class="flex justify-between items-center font-semibold">
                     <span class="text-lg">Total</span>
                     @if ($envio_type == 1)
-                        {{Cart::subtotal()}} USD
+                        {{Cart::subtotal()}} MXM
                     @else
-                        {{Cart::subtotal() + $shipping_cost}} USD
+                        {{Cart::subtotal() + $shipping_cost}} MXM
                     @endif
                 </p>
             </div>

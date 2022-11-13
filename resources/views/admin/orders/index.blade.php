@@ -119,7 +119,7 @@
                                     <br>
 
                                     <span class="text-sm">
-                                        {{$order->total}} USD
+                                        {{$order->total}} MXM
                                     </span>
                                 </div>
 

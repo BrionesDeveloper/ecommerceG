@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container py-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             <div>
                 <div class="flexslider">
                     <ul class="slides">
@@ -20,7 +20,7 @@
                     {!!$product->description!!}
                 </div>
 
-                @can('review', $product)
+                {{-- @can('review', $product)
                 <div class="-mt-2 text-gray-700">
                     <h2 class="font-bold text-lg">Dejar reseña </h2>
                         <form action="{{route('reviews.store', $product)}}" method="POST">
@@ -70,9 +70,9 @@
                         </form>
 
                 </div>                    
-                @endcan
+                @endcan --}}
 
-                @if($product->reviews->isNotEmpty())
+                {{-- @if($product->reviews->isNotEmpty())
                     
                 <div class="mt-6 text-gray-700">
                     <h2 class="font-bold text-lg"> 
@@ -109,17 +109,17 @@
                         </div>
 
                 </div>
-                @endif
+                @endif --}}
 
 
             </div>
 
-            <div>
+            <div class="col-span-2">
                 <h1 class="text-xl font-bold text-trueGray-700">{{$product->name}}</h1>
 
                 <div class="flex">
                     <p class="text-trueGray-700">Marca: <a class="underline capitalize hover:text-orange-500" href="">{{ $product->brand->name }}</a></p>
-                    <p class="text-trueGray-700 mx-6">{{$product->reviews->avg('rating')}} <i class="fas fa-star text-sm text-yellow-400"></i></p>
+                    {{-- <p class="text-trueGray-700 mx-6">{{$product->reviews->avg('rating')}} <i class="fas fa-star text-sm text-yellow-400"></i></p> --}}
                     {{-- <a class="text-orange-500 hover:text-orange-600 underline" href="">{{$product->review->count()}} reseñas</a> --}}
                 </div>
 

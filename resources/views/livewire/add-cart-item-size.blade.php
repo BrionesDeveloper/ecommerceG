@@ -23,7 +23,7 @@
         </select>
     </div>
 
-    <p class="text-gray-700 my-4">
+    {{-- <p class="text-gray-700 my-4">
         <span class="font-semibold text-lg">Stock disponible:</span>
 
         @if ($quantity)
@@ -32,7 +32,7 @@
             {{$product->stock}}
         @endif
 
-    </p>
+    </p> --}}
 
     <div class="flex">
         <div class="mr-4">
