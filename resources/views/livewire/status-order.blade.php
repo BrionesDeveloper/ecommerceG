@@ -114,9 +114,9 @@
                     <th>Precio</th>
                     <th>Cant</th>
                     <th>Total</th>
+                    {{-- <th class="py-2">Acción</th> --}}
                 </tr>
             </thead>
-
             <tbody class="divide-y divide-gray-200">
                 @foreach ($items as $item)
                     <tr>
@@ -151,12 +151,46 @@
                         <td class="text-center">
                             {{ $item->price * $item->qty }} MXM
                         </td>
+                        {{-- <td class="py-2">
+                            <div class="flex divide-x divide-gray-300 font-semibold">
+                                <a class="pr-2 hover:text-blue-600 cursor-pointer" wire:click="edit('{{$item->id}}')">Editar</a>
+                                <a class="pl-2 hover:text-red-600 cursor-pointer" wire:click="$emit('deleteOrder', '{{$item->id}}')">Eliminar</a>
+                            </div>
+                        </td> --}}
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
 
+    @push('script')
+    <script>
+        Livewire.on('deleteOrder', itemId => {
+        
+            Swal.fire({
+                title: 'Estas seguro?',
+                text: "No se podra revertir este cambio!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminalo!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
 
+                    Livewire.emitTo('status-order', 'delete', itemId)
+
+                    Swal.fire(
+                        'Eliminado!',
+                        'El elemento seleccionado se elimino correctamente.',
+                        'success'
+                    )
+                }
+            })
+
+        });
+    </script>
+@endpush
 
 </div>

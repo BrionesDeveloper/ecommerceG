@@ -29,12 +29,12 @@
             </div>
 
             <div class="col-span-6 sm:col-span-4">
-                <x-jet-label>
+                {{-- <x-jet-label>
                     Ícono
                 </x-jet-label>
 
                 <x-jet-input wire:model.defer="createForm.icon" type="text" class="w-full mt-1" />
-                <x-jet-input-error for="createForm.icon" />
+                <x-jet-input-error for="createForm.icon" /> --}}
             </div>
 
             <div class="col-span-6 sm:col-span-4">
@@ -105,7 +105,7 @@
                         <tr>
                             <td class="py-2">
                                 <span class="inline-block w-8 text-center mr-2">
-                                    {!!$category->icon!!}
+                                    <img class="h-10 w-10 rounded-full object-cover" src="{{ asset('storage/' .$category->image) }}" alt="">                                        
                                 </span>
 
                                 <a href="{{route('admin.categories.show', $category)}}" class="uppercase underline hover:text-blue-600">

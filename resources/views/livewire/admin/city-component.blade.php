@@ -6,15 +6,15 @@
     </x-slot>
 
     <div class="container py-12">
-        {{-- Agregar distrito --}}
+        {{-- Agregar colonia --}}
         <x-jet-form-section submit="save" class="mb-6">
     
             <x-slot name="title">
-                Agregar una nueva distrito
+                Agregar una nueva colonia
             </x-slot>
     
             <x-slot name="description">
-                Complete la información necesaria para poder agregar un nuevo distrito
+                Complete la información necesaria para poder agregar un nuevo colonia
             </x-slot>
     
             <x-slot name="form">
@@ -33,7 +33,7 @@
             <x-slot name="actions">
     
                 <x-jet-action-message class="mr-3" on="saved">
-                    Distrito agregado
+                    colonia agregado
                 </x-jet-action-message>
     
                 <x-jet-button>
@@ -45,11 +45,11 @@
         {{-- Mostrar Departamentos --}}
         <x-jet-action-section>
             <x-slot name="title">
-                Lista de distritos
+                Lista de colonias
             </x-slot>
     
             <x-slot name="description">
-                Aquí encontrará todas los distritos agregados
+                Aquí encontrará todas los colonias agregados
             </x-slot>
     
             <x-slot name="content">
@@ -90,7 +90,7 @@
         <x-jet-dialog-modal wire:model="editForm.open">
     
             <x-slot name="title">
-                Editar distrito
+                Editar colonia
             </x-slot>
     
             <x-slot name="content">
@@ -125,21 +125,22 @@
             Livewire.on('deleteDistrict', districtId => {
             
                 Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: 'Estas seguro?',
+                    text: "No se podra revertir este cambio!",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: 'Si, eliminalo!',
+                    cancelButtonText: 'Cancelar'
                 }).then((result) => {
                     if (result.isConfirmed) {
 
                         Livewire.emitTo('admin.city-component', 'delete', districtId)
 
                         Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
+                            'Eliminado!',
+                            'El elemento seleccionado se elimino correctamente.',
                             'success'
                         )
                     }

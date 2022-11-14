@@ -6,8 +6,10 @@
             <ul class="slides">
                     @foreach ($brands as $brand)
                                 
-                    <li >                
-                        <img  src="{{asset('storage/' .$brand->image) }}">                    
+                    <li > 
+                        <a href="{{$brand->name}}">
+                            <img  src="{{asset('storage/' .$brand->image) }}">                    
+                        </a>               
                     </li>
             
                     @endforeach

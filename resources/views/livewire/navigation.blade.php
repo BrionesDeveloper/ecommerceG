@@ -1,6 +1,8 @@
 <header class="bg-neutral-900 sticky top-0" style="z-index: 900 " x-data="dropdown()">
     <div class="container flex items-center h-16 justify-between md:justify-start">
-        <a  :class="{'bg-opacity-100 text-fuchsia-500' : open}"
+        
+            @if ($sitio)
+            <a  :class="{'bg-opacity-100 text-fuchsia-500' : open}"
             x-on:click="show()"
             class="flex flex-col items-center justify-center order-last md:order-first px-6 md:px-4 bg-white bg-opacity-25 text-white cursor-pointer font-semibold h-full">
             <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -9,6 +11,10 @@
             </svg>
 
             <span class="text-sm hidden md:block">Categorías</span>
+            @else
+                <p></p>
+            @endif
+            
         </a>
 
         {{-- <a  
@@ -131,7 +137,8 @@
                             <a href="{{route('categories.show', $category)}}" class="py-2 px-4 text-sm flex items-center">
 
                                 <span class="flex justify-center w-9">
-                                    {!!$category->icon!!}
+                                    <img class="h-10 w-10 rounded-full object-cover" src="{{ asset('storage/' .$category->image) }}" alt="">                                        
+
                                 </span>
 
                                 {{$category->name}}
@@ -225,5 +232,6 @@
             @endauth
         </div>
     </nav>
+    <x-contact ></x-contact>
 
 </header>

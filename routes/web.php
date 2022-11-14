@@ -15,9 +15,12 @@ use App\Http\Livewire\CreateOrder;
 use App\Http\Livewire\PaymentOrder;
 
 use App\Http\Controllers\WebhooksController;
+use App\Http\Livewire\Privacidad;
+use App\Http\Livewire\TerminosCondiciones;
 use App\Models\Order;
 
-Route::get('/', WelcomeController::class);
+Route::get('/', WelcomeController::class)->name('welcome');
+// Route::get('/{sitio}', WelcomeController::class)->name('welcome.site');
 
 Route::get('search', SearchController::class)->name('search');
 
@@ -26,6 +29,9 @@ Route::get('categories/{category}', [CategoryController::class, 'show'])->name('
 Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
 
 Route::get('shopping-cart', ShoppingCart::class)->name('shopping-cart');
+
+Route::get('aviso-de-privacidad', Privacidad::class)->name('privacidad');
+Route::get('terminos-y-condiciones', TerminosCondiciones::class)->name('terminos');
 
 // rutas Admin
 

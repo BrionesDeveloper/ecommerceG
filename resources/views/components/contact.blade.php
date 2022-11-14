@@ -1,12 +1,24 @@
-<div>
-    {{-- <div class="grid grid-cols-2 gap-4">
-        <div><i class="fa fa-facebookc "></i></div>        
-        <div>FACEBOOK</div>
-        <div><i class="fa-brands fa-instagram"></i></div>        
-        <div>INSTAGRAM</div>
-        <div><i class="fa fa-whatsapp"></i></div>        
-        <div>WHATSAAP</div>
-        <div><i class="fas fa-mail-bulk    "></i></div>        
-        <div>contacto@guapissimaonline.com</div>
-    </div> --}}
+<div class="float-right  right-1 p-6 absolute px-12" >
+    <div class="grid grid-rows-4 grid-flow-col">
+        <div>
+    <a href="https://www.facebook.com/profile.php?id=100067770863865"><i class="fab fa-facebook-square fa-2x "></i></a>        
+
+</div>
+        <div>
+
+            <a href="https://www.instagram.com/guapissima_cosmetics/"><i  class="fab fa-instagram-square fa-2x "></i></a>
+
+        </div>
+        <div>
+
+            <a href="https://www.tiktok.com/@guapissimacosmetics"> 
+                <svg class="w-5 fab mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg> </a>
+
+        </div>
+        <div>
+            <a href=""><i class="fab fa-whatsapp fa-2x " aria-hidden="true"></i></a>
+
+        </div>
+      </div>
+              
 </div>

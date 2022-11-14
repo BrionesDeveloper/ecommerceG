@@ -42,7 +42,7 @@ class ShowDepartment extends Component
 
         $this->validate([
             "createForm.name" => 'required',
-            "createForm.cost" => 'required|numeric|min:1|max:100',
+            "createForm.cost" => 'required|numeric|min:1|max:999',
         ]);
 
         $this->department->cities()->create($this->createForm);

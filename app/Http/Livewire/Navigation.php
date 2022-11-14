@@ -8,6 +8,16 @@ use App\Models\Category;
 
 class Navigation extends Component
 {
+    protected $listeners = ['apagar','encender'];
+    public $sitio=true;
+    public function apagar(){      
+
+        $this->sitio=false;
+    }
+    public function encender(){       
+
+        $this->sitio=true;
+    }
     public function render()
     {
         $categories = Category::all();

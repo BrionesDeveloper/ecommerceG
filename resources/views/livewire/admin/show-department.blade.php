@@ -1,12 +1,12 @@
 <div>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight capitalize">
-            Departamento: {{$department->name}}
+            Estado: {{$department->name}}
         </h2>
     </x-slot>
 
     <div class="container py-12">
-        {{-- Agregar departamento --}}
+        {{-- Agregar Estado --}}
         <x-jet-form-section submit="save" class="mb-6">
     
             <x-slot name="title">
@@ -51,7 +51,7 @@
             </x-slot>
         </x-jet-form-section>
     
-        {{-- Mostrar Departamentos --}}
+        {{-- Mostrar Estados --}}
         <x-jet-action-section>
             <x-slot name="title">
                 Lista de ciudades
@@ -98,7 +98,7 @@
         <x-jet-dialog-modal wire:model="editForm.open">
     
             <x-slot name="title">
-                Editar departamento
+                Editar Estado
             </x-slot>
     
             <x-slot name="content">
@@ -143,21 +143,22 @@
             Livewire.on('deleteCity', cityId => {
             
                 Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: 'Estas seguro?',
+                    text: "No se podra revertir este cambio!",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: 'Si, eliminalo!',
+                    cancelButtonText: 'Cancelar'
                 }).then((result) => {
                     if (result.isConfirmed) {
 
                         Livewire.emitTo('admin.show-department', 'delete', cityId)
 
                         Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
+                            'Eliminado!',
+                            'El elemento seleccionado se elimino correctamente.',
                             'success'
                         )
                     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
@@ -55,7 +56,8 @@ class CategoryFilter extends Component
         }
 
         $products = $productsQuery->paginate(20);
+        $categorias = Category::all();
 
-        return view('livewire.category-filter', compact('products'));
+        return view('livewire.category-filter', compact('products','categorias'));
     }
 }

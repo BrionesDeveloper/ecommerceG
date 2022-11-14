@@ -3,7 +3,7 @@
         <div class="px-6 py-2 flex justify-between items-center">
             <h1 class="font-semibold text-gray-700 uppercase">{{$category->name}}</h1>
 
-            <div class="hidden md:block grid grid-cols-2 border border-gray-200 divide-x divide-gray-200 text-gray-500">
+            <div class=" md:block grid grid-cols-2 border border-gray-200 divide-x divide-gray-200 text-gray-500">
                 <i class="fas fa-border-all p-3 cursor-pointer {{ $view == 'grid' ? 'text-fuchsia-500' : ''}}" wire:click="$set('view', 'grid')"></i>
                 <i class="fas fa-th-list p-3 cursor-pointer {{ $view == 'list' ? 'text-fuchsia-500' : ''}}" wire:click="$set('view', 'list')"></i>
             </div>
@@ -13,6 +13,17 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
 
         <aside>
+            <h2 class="font-semibold text-center mb-2">Categorias</h2>
+            <ul class="divide-y divide-gray-200">
+                @foreach ($categorias as $category)
+                    <li class="py-2 text-sm">
+                        <a class="cursor-pointer hover:text-fuchsia-500 capitalize {{ $category == $category->slug ? 'text-fuchsia-500 font-semibold' : '' }}"
+                            {{-- wire:click="$set('category', '{{$category->slug}}')" --}}
+                        >{{$category->name}}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
 
             <h2 class="font-semibold text-center mb-2">Subcategorías</h2>
             <ul class="divide-y divide-gray-200">

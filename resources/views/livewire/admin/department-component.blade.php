@@ -1,13 +1,13 @@
 <div class="container py-12">
-    {{-- Agregar departamento --}}
+    {{-- Agregar Estado --}}
     <x-jet-form-section submit="save" class="mb-6">
 
         <x-slot name="title">
-            Agregar un nuevo departamento
+            Agregar un nuevo Estado
         </x-slot>
 
         <x-slot name="description">
-            Complete la información necesaria para poder agregar un nuevo departamento
+            Complete la información necesaria para poder agregar un nuevo Estado
         </x-slot>
 
         <x-slot name="form">
@@ -25,7 +25,7 @@
         <x-slot name="actions">
 
             <x-jet-action-message class="mr-3" on="saved">
-                Departamento agregado
+                Estado agregado
             </x-jet-action-message>
 
             <x-jet-button class="bg-pink-700">
@@ -34,14 +34,14 @@
         </x-slot>
     </x-jet-form-section>
 
-    {{-- Mostrar Departamentos --}}
+    {{-- Mostrar Estados --}}
     <x-jet-action-section>
         <x-slot name="title">
-            Lista de Departamentos
+            Lista de Estados
         </x-slot>
 
         <x-slot name="description">
-            Aquí encontrará todas los departamentos agregados
+            Aquí encontrará todas los Estados agregados
         </x-slot>
 
         <x-slot name="content">
@@ -81,7 +81,7 @@
     <x-jet-dialog-modal wire:model="editForm.open">
 
         <x-slot name="title">
-            Editar departamento
+            Editar Estado
         </x-slot>
 
         <x-slot name="content">
@@ -115,21 +115,22 @@
             Livewire.on('deleteDepartment', departmentId => {
             
                 Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: 'Estas seguro?',
+                    text: "No se podra revertir este cambio!",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: 'Si, eliminalo!',
+                    cancelButtonText: 'Cancelar'
                 }).then((result) => {
                     if (result.isConfirmed) {
 
                         Livewire.emitTo('admin.department-component', 'delete', departmentId)
 
                         Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
+                            'Eliminado!',
+                            'El elemento seleccionado se elimino correctamente.',
                             'success'
                         )
                     }

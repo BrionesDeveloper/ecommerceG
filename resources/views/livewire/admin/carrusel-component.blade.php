@@ -12,7 +12,7 @@
         <x-slot name="form">
             <div class="col-span-6 sm:col-span-4">
                 <x-jet-label>
-                    Nombre
+                    URL
                 </x-jet-label>
 
                 <x-jet-input type="text" wire:model="createForm.name" class="w-full" />
@@ -50,7 +50,7 @@
             <table class="text-gray-600">
                 <thead class="border-b border-gray-300">
                     <tr class="text-left">
-                        <th class="py-2 w-full">Nombre</th>
+                        <th class="py-2 w-full">URL</th>
                         <th class="py-2">Acción</th>
                     </tr>
                 </thead>
@@ -109,7 +109,7 @@
                 @endif
             </div>
             <x-jet-label>
-                Nombre
+                URL
             </x-jet-label>
             <x-jet-input wire:model="editForm.name" type="text" class="w-full" />
             <x-jet-input-error for="editForm.name" />
@@ -136,21 +136,22 @@
             Livewire.on('deleteCarrusel', carruselId => {
             
                 Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: 'Estas seguro?',
+                    text: "No se podra revertir este cambio!",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: 'Si, eliminalo!',
+                    cancelButtonText: 'Cancelar'
                 }).then((result) => {
                     if (result.isConfirmed) {
 
                         Livewire.emitTo('admin.carrusel-component', 'delete', carruselId)
 
                         Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
+                            'Eliminado!',
+                            'El elemento seleccionado se elimino correctamente.',
                             'success'
                         )
                     }

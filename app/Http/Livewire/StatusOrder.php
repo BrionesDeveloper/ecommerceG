@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Order;
 use Livewire\Component;
 
 class StatusOrder extends Component
@@ -17,6 +18,12 @@ class StatusOrder extends Component
         $this->order->status = $this->status;
         $this->order->save();
     }
+    // public function delete(Order $order){
+        
+
+    //     // $order->delete();
+    //     // $this->render();
+    // }
 
     public function render()
     {
