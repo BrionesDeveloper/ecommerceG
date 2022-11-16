@@ -29,12 +29,12 @@
             </div>
 
             <div class="col-span-6 sm:col-span-4">
-                {{-- <x-jet-label>
+                <x-jet-label>
                     Ícono
                 </x-jet-label>
 
                 <x-jet-input wire:model.defer="createForm.icon" type="text" class="w-full mt-1" />
-                <x-jet-input-error for="createForm.icon" /> --}}
+                <x-jet-input-error for="createForm.icon" />
             </div>
 
             <div class="col-span-6 sm:col-span-4">

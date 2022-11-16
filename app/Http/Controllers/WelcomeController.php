@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Order;
+use Illuminate\Support\Facades\Http;
 
 
 
@@ -30,6 +31,8 @@ class WelcomeController extends Controller
 
         }
 
+        // $test = Http::get('https://jsonplaceholder.typicode.com/users');
+        // $testarray = $test->json();
         
         $categories = Category::all();
 
