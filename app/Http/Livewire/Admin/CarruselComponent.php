@@ -82,7 +82,7 @@ class CarruselComponent extends Component
             'editForm.name' => 'required'
         ]);
         if ($this->editImage) {
-            $rules['editImage'] = 'required|image|max:1024';
+            $rules['editImage'] = 'required|image';
         }
         if ($this->editImage) {
             Storage::delete($this->editForm['image']);
